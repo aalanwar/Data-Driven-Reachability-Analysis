@@ -48,12 +48,14 @@ U = zonotope(10,0.25);
 W = zonotope(zeros(dim_x,1),0.005*ones(dim_x,1));
 
 %Construct matrix zonotpe \mathcal{M}_w
+index=1;
 for i=1:size(W.generators,2)
     vec=W.Z(:,i+1);
-     GW{i}= [ vec,zeros(dim_x,totalsamples-1)];
+    GW{index}= [ vec,zeros(dim_x,totalsamples-1)];
     for j=1:totalsamples-1
-        GW{j+i}= [GW{i+j-1}(:,2:end) GW{i+j-1}(:,1)];
+        GW{j+index}= [GW{index+j-1}(:,2:end) GW{index+j-1}(:,1)];
     end
+    index = j+index+1;
 end
 Wmatzono= matZonotope(zeros(dim_x,totalsamples),GW);
 

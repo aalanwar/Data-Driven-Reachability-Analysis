@@ -37,7 +37,7 @@ sys_c = ss(A,B_ss,C,D);
 samplingtime = 0.05;
 sys_d = c2d(sys_c,samplingtime);
 % Number of trajectories
-initpoints =1;
+initpoints =4;
 % Number of time steps
 steps = 500;
 totalsamples = initpoints*steps;
@@ -61,14 +61,15 @@ Wmatzono= matZonotope(ones(dim_x,totalsamples),GW);
 V = zonotope(ones(dim_x,1),0.02*ones(dim_x,1));
 %take care to change the center of Vmatzono if you change V
 %Construct matrix zonotpe \mathcal{M}_v
-for i=1:size(W.generators,2)
+index=1;
+for i=1:size(V.generators,2)
     vec=V.Z(:,i+1);
-     GV{i}= [ vec,zeros(dim_x,totalsamples-1)];
+    GV{index}= [ vec,zeros(dim_x,totalsamples-1)];
     for j=1:totalsamples-1
-        GV{j+i}= [GV{i+j-1}(:,2:end) GV{i+j-1}(:,1)];
+        GV{j+index}= [GV{index+j-1}(:,2:end) GV{index+j-1}(:,1)];
     end
+    index = j+index+1;
 end
-
 Vmatzono= matZonotope(ones(dim_x,totalsamples),GV);
 
 

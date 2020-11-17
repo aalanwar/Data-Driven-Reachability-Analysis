@@ -7,8 +7,7 @@
 % Subfunctions: none
 % MAT-files required: none
 %
-% See also: Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "Data Driven Reachability Analysis from Noisy Data with Unknown
-% System Model"
+% See also: Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "Data Driven Reachability Analysis Using Matrix Zonotopes"
 %
 %
 %
@@ -36,9 +35,9 @@ samplingtime = 0.05;
 sys_d = c2d(sys_c,samplingtime);
 
 %Number of trajectories
-initpoints =600;
+initpoints =100;
 %Number of time steps
-steps = 6;
+steps = 1;
 totalsamples = initpoints*steps;
 %% initial set and input
 X0 = zonotope(ones(dim_x,1),0.1*diag(ones(dim_x,1)));

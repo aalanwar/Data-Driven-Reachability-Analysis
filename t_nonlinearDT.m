@@ -1,7 +1,7 @@
-% t_nonlinearDT - example of nonlinear discrete time data driven
-% reachability analysis.
-%
-% This example can be found in [1, Sec. 6].
+% t_nonlinearDT - computes the data driven reachable set of discrete time systems
+% x(k+1) = f(x(k),u(k)) + w(k)  
+% The approach is based on [1]. The nonlinear system is found in [2]
+% 
 % 
 %
 % Syntax:  
@@ -16,8 +16,11 @@
 % Example: 
 %
 % References:
-%    [1] J.M. Bravo, Robust MPC of constrained discrete-time
+%    [1] Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson 
+%       "Data Driven Reachability Analysis Using Matrix Zonotopes"
+%    [2] J.M. Bravo, Robust MPC of constrained discrete-time
 %        nonlinear systems based on approximated reachable sets, 2006
+%    
 % 
 % Author:       Amr Alanwar
 % Written:      29-October-2020
@@ -29,15 +32,16 @@
 
 clear all
 close all
+addpath('nonlinearDT')
 %rand('seed',1);
 dt = 0.015;
 params.tFinal = dt*5;
 
 %input set
-params.U = zonotope([[1;1],diag([0.1;2])]); %,[0.1 0.2 0.001;0.7 0.21 4]
+params.U = zonotope([[1;1],diag([0.1;2])]); 
 
 %initial set
-params.R0 = zonotope([[-0.15;-45],diag([0.005;3])]);%,[0.1 0.2 0.001;0.7 0.21 4];
+params.R0 = zonotope([[-0.15;-45],diag([0.005;3])]);
 % dimension of x
 options.dim_x=2;
 

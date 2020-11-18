@@ -1,7 +1,6 @@
 ## Data Driven Reachability Analysis using Matrix Zonotopes
 <br /> 
-We consider the problem of computing the set of states that a system can reach, <br />
-which is commonly known as reachability analysis. This repo cotains the code for our paper:<br /> 
+This repo cotains the code for our paper:<br /> 
 [1] Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "Data Driven Reachability Analysis from Noisy Data with Unknown
  System Model <br />
 

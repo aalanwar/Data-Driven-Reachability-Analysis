@@ -1,8 +1,7 @@
 ## Data Driven Reachability Analysis using Matrix Zonotopes
 <br /> 
 This repo cotains the code for our paper:<br /> 
-[1] Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "Data Driven Reachability Analysis from Noisy Data with Unknown
- System Model <br />
+[1] Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "Data Driven Reachability Analysis Using Matrix Zonotopes <br />
 
 
 

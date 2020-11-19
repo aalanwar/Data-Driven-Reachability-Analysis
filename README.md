@@ -25,3 +25,14 @@ width=500
 2- Add CORA nad MPT folder and subfolders to the Matlab path.  <br />
 3- run t_linearDT.m for linear system.<br />
 4- run t_nonlinearDT.m for nonlinear system.<br />
+<br />
+
+Our paper Bibtex is as follows:<br />
+```
+@article{datadriven_reach,
+  title={Data-Driven Reachability Analysis Using Matrix Zonotopes},
+  author={Alanwar, Amr and Koch, Anne and Allgöwer, Frank and Johansson, Karl Henrik},
+  journal={arXiv preprint arXiv:2011.08472},
+  year={2020}
+}
+```

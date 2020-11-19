@@ -21,6 +21,8 @@ width=500
 </p>
 
 ## Running 
-Add CORA toolbox to your path<br />
-run t_linearDT.m for linear system<br />
-run t_nonlinearDT.m for nonlinear system<br />
+1- Download [CORA](https://github.com/TUMcps/CORA) and [MPT](https://www.mpt3.org) toolboxs.<br />.
+<br />
+2- Add CORA nad MPT folder and subfolders to the Matlab path.  <br />
+3- run t_linearDT.m for linear system<br />
+4- run t_nonlinearDT.m for nonlinear system<br />

@@ -35,9 +35,9 @@ samplingtime = 0.05;
 sys_d = c2d(sys_c,samplingtime);
 
 %Number of trajectories
-initpoints =100;
+initpoints =1;
 %Number of time steps
-steps = 1;
+steps = 120;
 totalsamples = initpoints*steps;
 %% initial set and input
 X0 = zonotope(ones(dim_x,1),0.1*diag(ones(dim_x,1)));

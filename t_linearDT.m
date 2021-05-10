@@ -35,9 +35,15 @@ samplingtime = 0.05;
 sys_d = c2d(sys_c,samplingtime);
 
 %Number of trajectories
+<<<<<<< HEAD
 initpoints =13;
 %Number of time steps
 steps = 5;
+=======
+initpoints =1;
+%Number of time steps
+steps = 120;
+>>>>>>> 89d8163671c79647eb1e88e57f6c2ef60b5b2908
 totalsamples = initpoints*steps;
 %% initial set and input
 X0 = zonotope(ones(dim_x,1),0.1*diag(ones(dim_x,1)));
@@ -199,4 +205,13 @@ for plotRun=1:length(projectedDims)
     ax_height = outerpos(4) - ti(2) - ti(4);
     ax.Position = [left bottom ax_width ax_height];
     %set(gcf, 'Units', 'Normalized', 'OuterPosition', [0, 0.04, 1, 0.96]);
+<<<<<<< HEAD
 end
+=======
+end
+
+
+
+
+%------------- END OF CODE --------------
+>>>>>>> 89d8163671c79647eb1e88e57f6c2ef60b5b2908

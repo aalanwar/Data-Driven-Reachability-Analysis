@@ -168,7 +168,7 @@ ylabel('x_2');
 % skip warning for extra legend entries
 warOrig = warning; warning('off','all');
 legend([handleX0,handleModel,handleData],...
-    'Initial Set','Set from Model','Set from Data','Location','northwest');
+    'Initial set $\mathcal{X}_0$','Set from model $\mathcal{R}_k$','Set from data $\mathcal{R}_k^{\prime}$','Location','northwest','Interpreter','latex');
 warning(warOrig);
 ax = gca;
 ax.FontSize = 16;

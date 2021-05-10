@@ -21,7 +21,7 @@
 rand('seed',1);
 
 clear all
-close all
+%close all
 %% system dynamics
 dim_x = 5;
 A = [-1 -4 0 0 0; 4 -1 0 0 0; 0 0 -3 1 0; 0 0 -1 -3 0; 0 0 0 0 -2];
@@ -35,9 +35,9 @@ samplingtime = 0.05;
 sys_d = c2d(sys_c,samplingtime);
 
 %Number of trajectories
-initpoints =100;
+initpoints =13;
 %Number of time steps
-steps = 1;
+steps = 5;
 totalsamples = initpoints*steps;
 %% initial set and input
 X0 = zonotope(ones(dim_x,1),0.1*diag(ones(dim_x,1)));
@@ -136,7 +136,7 @@ X_model{1} = X0; X_data{1} = X0;
 for i=1:totalsteps
     
     % 1) model-based computation
-    X_model{i,1}=reduce(X_model{i,1},'girard',10);
+    X_model{i,1}=reduce(X_model{i,1},'girard',400);
     X_model{i+1,1} = sys_d.A * X_model{i} + sys_d.B * U+W;
     % 2) Data Driven approach
     X_data{i,1}=reduce(X_data{i,1},'girard',400);
@@ -200,8 +200,3 @@ for plotRun=1:length(projectedDims)
     ax.Position = [left bottom ax_width ax_height];
     %set(gcf, 'Units', 'Normalized', 'OuterPosition', [0, 0.04, 1, 0.96]);
 end
-
-
-
-
-%------------- END OF CODE --------------

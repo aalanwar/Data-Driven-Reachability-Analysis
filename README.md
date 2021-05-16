@@ -1,37 +1,39 @@
 ## Data Driven Reachability Analysis using Matrix Zonotopes
 <br /> 
 This repo cotains the code for our two papers:<br /> 
-[1] Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "Data Driven Reachability Analysis Using Matrix Zonotopes <br />
-[2] Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "Data Driven Reachability Analysis from Noisy Data <br />
+[1] Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "Data Driven Reachability Analysis Using Matrix Zonotopes" 
+3rd Annual Learning for Dynamics & Control Conference <br />
+[2] Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "Data Driven Reachability Analysis from Noisy" Submitted to IEEE Transactions on Automatic Control<br />
 
 
-
-We consider the problem of reachability analysis from noisy data given that the system 
-model is unknown. Identifying a model is a preliminary step in the state of the art 
-reachability analysis approaches. However, systems are becoming more complex and data 
-is becoming more readily available. We propose data driven reachability analysis using matrix zonotope 
-and using a new set representation named constraied matrix zonotope.<br />
-
+We consider the problem of reachability analysis from noisy data, given that the system model is unknown. 
+Identifying a model is a preliminary step in the state-of-the-art reachability analysis approaches. 
+However, systems are becoming more complex, and data is becoming more readily available. 
+We propose a data-driven reachability analysis using matrix zonotope and using a new set representation named constrained matrix zonotope.<br />
+The following figure summarize the idea behind our papers.
 <br /> <br />
 <p align="center">
 <img
-src="Figures/idea2.png"
+src="Figures/idea3.png"
 raw=true
 alt="Subject Pronouns"
 width=500
 />
 </p>
-
-## Running 
-1- Download [CORA](https://github.com/TUMcps/CORA) and [MPT](https://www.mpt3.org) toolboxs.<br />
-2- Add CORA nad MPT folder and subfolders to the Matlab path.  <br />
-3- Add the repo folder and subfolders to the Matlab path.  <br />
+<br />
 <br />
 There are two levels of complexity for the proposed data driven reachability analysis<br />
 A- Basic reachability analysis (files start with a-)<br />
 B- Constrained matrix zonotope reachability analysis (files start with b-), 
 These files compare three methods for reachability analysis namely, matrix zonotope, constrained matrix
 zonotop using exact noise description and constrained matrix zonotope given side information.<br />
+<br />
+
+## Running 
+1- Download [CORA](https://github.com/TUMcps/CORA) and [MPT](https://www.mpt3.org) toolboxs.<br />
+2- Add CORA nad MPT folder and subfolders to the Matlab path.  <br />
+3- Add the repo folder and subfolders to the Matlab path.  <br />
+<br />
 <br />
 4- run a_linearDT.m for linear system using matrix zonotope.<br />
 5- run a_nonlinearDT.m for nonlinear system.<br />

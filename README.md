@@ -1,9 +1,10 @@
 ## Data Driven Reachability Analysis from Noisy Data
 <br/> 
-This repo cotains the code for our two papers:
+This repo cotains the code for our two papers :
+
 <br/><br/>
 1- Amr Alanwar, Anne Koch, Frank Allgower, Karl Johansson 'Data Driven Reachability Analysis from Noisy Data'
-[link](https://arxiv.org/abs/2011.08472) 
+3rd Annual Learning for Dynamics and Control Conference  [link](https://arxiv.org/abs/2011.08472) 
 
 <br/><br/>
 2- Amr Alanwar, Anne Koch, Frank Allgower, Karl Johansson 'Data Driven Reachability Analysis from Noisy Data' Submitted to IEEE Transactions on Automatic Control ( [link](https://arxiv.org/abs/2105.07229) ) 

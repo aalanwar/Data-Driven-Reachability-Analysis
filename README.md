@@ -1,16 +1,16 @@
 ## Data Driven Reachability Analysis from Noisy Data
 <br /> 
 This repo cotains the code for our two papers:<br /> <br />
-[1] Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "Data Driven Reachability Analysis Using Matrix Zonotopes" 
+[1] Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "[Data Driven Reachability Analysis Using Matrix Zonotopes](https://arxiv.org/abs/2011.08472)" 
 3rd Annual Learning for Dynamics & Control Conference <br /><br />
-[2] Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "Data Driven Reachability Analysis from Noisy" Submitted to IEEE Transactions on Automatic Control<br />
+[2] Amr Alanwar, Anne Koch, Frank Allgöwer, Karl Johansson "[Data Driven Reachability Analysis from Noisy Data](https://arxiv.org/abs/2105.07229)" Submitted to IEEE Transactions on Automatic Control<br />
 
 ## Problem Statement
 We consider the problem of reachability analysis from noisy data, given that the system model is unknown. 
 Identifying a model is a preliminary step in the state-of-the-art reachability analysis approaches. 
 However, systems are becoming more complex, and data is becoming more readily available. 
 We propose a data-driven reachability analysis using matrix zonotope and using a new set representation named constrained matrix zonotope.<br />
-The following figure summarize the idea behind our papers.
+The following figure summarizes the idea behind our papers.
 <br /> <br />
 <p align="center">
 <img

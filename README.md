@@ -2,7 +2,7 @@
 <br/> 
 This repo cotains the code for our two papers:
 <br/><br/>
-1- Amr Alanwar, Anne Koch, Frank Allgower, Karl Johansson "Data Driven Reachability Analysis Using Matrix Zonotopes"   
+1- Amr Alanwar, Anne Koch, Frank Allgower, Karl Johansson 'Data Driven Reachability Analysis from Noisy Data'
 3rd Annual Learning for Dynamics and Control Conference  [link](https://arxiv.org/abs/2011.08472) 
 
 <br/><br/>

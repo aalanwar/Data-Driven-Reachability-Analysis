@@ -66,12 +66,18 @@ p_plot_linearDT_sideInfo.m<br />
 <br />
 Our papers Bibtex are as follow:<br />
 ```
-@article{datadriven_reach1,
-  title={Data-Driven Reachability Analysis Using Matrix Zonotopes},
-  author={Alanwar, Amr and Koch, Anne and Allgöwer, Frank and Johansson, Karl Henrik},
-  journal={arXiv preprint arXiv:2011.08472},
-  year={2020}
-}
+@InProceedings{pmlr-v144-alanwar21a,
+  title = 	 {Data-Driven Reachability Analysis Using Matrix Zonotopes},
+  author =   {Alanwar, Amr and Koch, Anne and Allg\"ower, Frank and Johansson, Karl Henrik},
+  booktitle ={Proceedings of the 3rd Conference on Learning for Dynamics and Control},
+  pages = 	 {163--175},
+  year = 	 {2021},
+  volume = 	 {144},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {07 -- 08 June},
+  publisher =    {PMLR},
+ }
+
 ```
 
 ```

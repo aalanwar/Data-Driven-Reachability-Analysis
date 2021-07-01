@@ -27,7 +27,7 @@ close all
 rand('seed',1);
 
 %time steps
-N=4;
+N=3;
 dt = 0.015;
 %final time for model based reachability
 params.tFinal = dt*N;

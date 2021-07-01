@@ -32,16 +32,16 @@
 
 clear all
 close all
-addpath('nonlinearDT')
+%addpath('@nonlinearDT')
 %rand('seed',1);
 dt = 0.015;
 params.tFinal = dt*5;
 
 %input set
-params.U = zonotope([[1;1],diag([0.1;2])]); 
+params.U = zonotope([[0.01;0.01],diag([0.1;0.2])]); 
 
 %initial set
-params.R0 = zonotope([[-0.15;-45],diag([0.005;3])]);
+params.R0 = zonotope([[-1.9;-20],diag([0.005;0.3])]);
 % dimension of x
 options.dim_x=2;
 
@@ -54,7 +54,7 @@ steps=10;
 totalsamples = steps*initpoints;
 
 %noise zonotope
-wfac = 0.01;
+wfac = 1e-4;
 options.W = zonotope(zeros(options.dim_x,1),wfac*ones(options.dim_x,1)); % disturbance
 
 %noise matrix zonotope
@@ -125,7 +125,7 @@ for i=1:totalsamples
 end
 options.Zeps = zonotope([zeros(2,1),diag(eps*ones(1,options.dim_x))]);
 % flag to add Zeps 0 to skip, 1 to add the Zeps
-options.ZepsFlag = 0;
+options.ZepsFlag = 1;
 
 % X_+ is X_1T
 % X_- is X_0T
@@ -134,7 +134,7 @@ options.X_0T = x_meas_vec_0(:,1:totalsamples);
 options.X_1T = x_meas_vec_1(:,1:totalsamples);
 
 % define system 
-sysDisc = nonlinearSysDT('stirredTankReactor',fun,dt,2,2);
+sysDisc = nonlinearDT('stirredTankReactor',fun,dt,2,2);
 
 
 % Reachability Analysis ---------------------------------------------------

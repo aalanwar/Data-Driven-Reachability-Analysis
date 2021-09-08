@@ -158,8 +158,7 @@ elseif isa(factor2,'zonotope')
     matrixczono = factor1;
     czono = factor2;
     Znew=matrixczono.center*czono.Z;
-    
-    
+   
     for i=1:matrixczono.gens
         %mat generators * center
         Zadd=matrixczono.generator{i}*czono.Z(:,1);

@@ -52,7 +52,7 @@ else
     CZred = zonotope(CZ, alg);
     
     %convert back to matrix zonotope
-    res = matZonotope(CZred,numOfColc);
+    res = matZonotopeConv(CZred,numOfColc);
 end
 % parse input arguments
 end

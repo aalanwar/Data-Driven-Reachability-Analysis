@@ -205,34 +205,43 @@ X_data_cmz_side = cell(N+1,1);
 X_data{1} = params.R0;
 X_data_cmz{1} = conZonotope(params.R0);
 X_data_cmz_side{1} = conZonotope(params.R0);
+execTimeModel = 0;
+execTimeData = 0; 
+execTimeCmz = 0;
+execTimeSide = 0;
 for i = 1:N
     i
     %compute monomial of each reachable set
     X_z1 = interval(X_data{i});
     U_int = interval(params.U);    
+    tic()
     card =zonotope([interval([1]);X_z1;X_z1.*X_z1;X_z1(1)*X_z1(2);U_int;U_int.*U_int;U_int(1)*U_int(2);X_z1.*U_int;X_z1(1)*U_int(2);X_z1(2)*U_int(1)]);
-    
+    X_data{i+1} = AB *card +options.W ;
+    execTimeData=execTimeData + toc()/60;
+    X_data{i+1,1}=reduce(X_data{i+1,1},'girard',options.zonotopeOrder); 
     
     X_z1 = interval(X_data_cmz{i});
+    tic()
     card_cmz =zonotope([interval([1]);X_z1;X_z1.*X_z1;X_z1(1)*X_z1(2);U_int;U_int.*U_int;U_int(1)*U_int(2);X_z1.*U_int;X_z1(1)*U_int(2);X_z1(2)*U_int(1)]);
-    
-    X_z1 = interval(X_data_cmz_side{i});
-    card_cmz_side=zonotope([interval([1]);X_z1;X_z1.*X_z1;X_z1(1)*X_z1(2);U_int;U_int.*U_int;U_int(1)*U_int(2);X_z1.*U_int;X_z1(1)*U_int(2);X_z1(2)*U_int(1)]);
-    
-    X_data{i+1} = AB *card +options.W ;
-    X_data{i+1,1}=reduce(X_data{i+1,1},'girard',options.zonotopeOrder);
-    
     X_data_cmz{i+1} = AB_cmz *card_cmz+options.W ;
+    execTimeCmz=execTimeCmz + toc()/60;
     X_data_cmz{i+1,1}=reduce(X_data_cmz{i+1,1},'girard',options.zonotopeOrder);
-    
+
+    X_z1 = interval(X_data_cmz_side{i});
+    tic()
+    card_cmz_side=zonotope([interval([1]);X_z1;X_z1.*X_z1;X_z1(1)*X_z1(2);U_int;U_int.*U_int;U_int(1)*U_int(2);X_z1.*U_int;X_z1(1)*U_int(2);X_z1(2)*U_int(1)]);
     X_data_cmz_side{i+1} = AB_cmz_side *card_cmz_side+options.W ;
+    execTimeSide=execTimeSide + toc()/60;
     X_data_cmz_side{i+1}=reduce(X_data_cmz_side{i+1},'girard',options.zonotopeOrder);
 end
+execTimeData=execTimeData/N
+execTimeCmz=execTimeCmz/N
+execTimeSide=execTimeSide/N
 % Reachability Analysis ---------------------------------------------------
 
 tic
 R = reach(sysDisc,params,options);
-tComp = toc;
+tComp = toc/60;
 disp("Computation time: " + tComp);
 
 for i=1:length(R.timePoint.set)

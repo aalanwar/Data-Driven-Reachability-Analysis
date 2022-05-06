@@ -33,12 +33,13 @@
 clear all
 close all
 %addpath('@nonlinearDT')
-%rand('seed',1);
-dt = 0.015;
-params.tFinal = dt*5;
+rand('seed',1);
+dt =0.015;
+NN=5;
+params.tFinal = dt*NN;
 
 %input set
-params.U = zonotope([[0.01;0.01],diag([0.1;0.2])]); 
+params.U = zonotope([[0.01;0.01],diag([0.1;0.2])]);  
 
 %initial set
 params.R0 = zonotope([[-1.9;-20],diag([0.005;0.3])]);
@@ -46,9 +47,9 @@ params.R0 = zonotope([[-1.9;-20],diag([0.005;0.3])]);
 options.dim_x=2;
 
 %Number of trajectories
-initpoints=50;
+initpoints=30;
 %Number of time steps
-steps=10;
+steps=20;
 
 %Totoal number of samples
 totalsamples = steps*initpoints;
@@ -86,7 +87,9 @@ x(:,1) = randPoint(params.R0);
 index=1;
 for j=1:options.dim_x:initpoints*options.dim_x
     x(j:j+options.dim_x-1,1) = randPoint(params.R0);
+    x_free(j:j+options.dim_x-1,1) = x(j:j+options.dim_x-1,1);
     for i=1:steps
+        x_free(j:j+options.dim_x-1,i+1) = fun(x(j:j+options.dim_x-1,i),u(:,index));
         x(j:j+options.dim_x-1,i+1) = fun(x(j:j+options.dim_x-1,i),u(:,index)) +randPoint(options.W);
         index=index+1;
     end
@@ -97,33 +100,26 @@ end
 index_0 =1;
 index_1 =1;
 for j=1:options.dim_x:initpoints*options.dim_x
-    for i=2:steps+1
+    for i=2:steps+1        
         x_meas_vec_1(:,index_1) = x(j:j+options.dim_x-1,i);
+        x_free_vec_1(:,index_1) = x_free(j:j+options.dim_x-1,i);
         index_1 = index_1 +1;
     end
     for i=1:steps
+        x_free_vec_0(:,index_0) = x_free(j:j+options.dim_x-1,i);
         x_meas_vec_0(:,index_0) = x(j:j+options.dim_x-1,i);
         index_0 = index_0 +1;
     end
 end
 
-%compute Lipschitz constant
-L = 0;
-for i=1:totalsamples
-    z1= [x_meas_vec_0(:,i);u(i)];
-    f1= x_meas_vec_1(:,i);
-    for j=1:totalsamples
-        z2= [x_meas_vec_0(:,j);u(j)];
-        f2= x_meas_vec_1(:,j);
-        
-        newnorm = norm(f1-f2)/norm(z1-z2);
-        if newnorm > L
-            L = newnorm;
-            eps= L * norm(z1-z2);
-        end
-    end
-end
-options.Zeps = zonotope([zeros(2,1),diag(eps*ones(1,options.dim_x))]);
+stepsLip=1;
+initpointsLip=50;
+ [gamma,L]= compLipConst(fun,params.U,params.R0,stepsLip,initpointsLip,options.dim_x);
+
+ eps(1)= L(1) .* gamma(1)/2;
+ eps(2)= L(2) .* gamma(2)/2;
+%options.Zeps = zonotope([zeros(2,1),eps*diag(ones(2,1))]);
+options.Zeps = zonotope([zeros(2,1),diag(eps)]);
 % flag to add Zeps 0 to skip, 1 to add the Zeps
 options.ZepsFlag = 1;
 
@@ -144,7 +140,11 @@ tic
 tComp = toc;
 disp("Computation time: " + tComp);
 
-
+if options.ZepsFlag
+    for i = 1:NN
+        R_data.timePoint.set{i} = R_data.timePoint.set{i} + options.Zeps;
+    end
+end
 
 
 % Visualization -----------------------------------------------------------

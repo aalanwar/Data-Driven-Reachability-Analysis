@@ -67,8 +67,6 @@ V =  options.X_1T + -1*(IAB*[oneMat; options.X_0T+(-1*xStarMat);options.U_full+-
  
  Rtp_data = IAB*cartProd([1],cartProd(R_data+(-1*xStar),options.Uorig+(-1*uStar))) +V_one+ options.W ;
 
-if options.ZepsFlag
-    Rtp_data = Rtp_data + options.Zeps;
-end
+
 
 %------------- END OF CODE --------------

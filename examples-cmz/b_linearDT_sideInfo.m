@@ -206,32 +206,46 @@ X_model{1} = X0;
 X_data{1} = X0;
 X_data_cmz{1} = conZonotope(X0);
 X_data_cmz_side{1} = conZonotope(X0);
-tic
+
 delFlag = 0;
 redFact = 200;
+execTimeModel = 0;
+execTimeData = 0; 
+execTimeCmz = 0;
+execTimeSide = 0;
 for i=1:totalsteps
     i
     % 1) model-based computation 
+    tic()
     X_model{i+1,1} = sys_d.A * X_model{i} + sys_d.B * U+W;
+    execTimeModel=execTimeModel + toc()/60;
     X_model{i+1,1}=reduce(X_model{i+1,1},'girard',redFact);
     
     %2) data driven matrix zonotope
+    tic()
     X_data{i+1,1} = AB*cartProd(X_data{i},U) +W;
+    execTimeData=execTimeData + toc()/60;
     X_data{i+1,1} = reduce(X_data{i+1,1},'girard',redFact);
 
     
     % 3) Data Driven approach using exact noise description 
+    tic()
     cart_cmz = cartProd(X_data_cmz{i},conZonotope(U));
     X_data_cmz{i+1,1} = AB_cmz*cart_cmz +W;
+    execTimeCmz=execTimeCmz + toc()/60;
     X_data_cmz{i+1,1}=reduce(X_data_cmz{i+1,1},'girard',redFact); %390 
     
     % 4) Data Driven approach using side information 
+    tic()
     X_data_cmz_side{i+1,1} = AB_cmz_side*cartProd(X_data_cmz_side{i},conZonotope(U)) +W;
+    execTimeSide=execTimeSide + toc()/60;
     X_data_cmz_side{i+1,1}=reduce(X_data_cmz_side{i+1,1},'girard',redFact);
     
 end
-execTime = toc/60
-
+execTimeModel=execTimeModel/totalsteps
+execTimeData=execTimeData/totalsteps
+execTimeCmz=execTimeCmz/totalsteps
+execTimeSide=execTimeSide/totalsteps
 
 %% visualization
 

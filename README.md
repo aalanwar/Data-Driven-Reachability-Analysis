@@ -36,8 +36,8 @@ zonotop using exact noise description and constrained matrix zonotope given side
 <br />
 
 ## Running 
-1- Download [CORA](https://github.com/TUMcps/CORA) and [MPT](https://www.mpt3.org) toolboxs.<br />
-2- Add CORA nad MPT folder and subfolders to the Matlab path.  <br />
+1- Download [CORA 2020](https://tumcps.github.io/CORA/data/CORA_2020.zip) and [MPT](https://www.mpt3.org) toolboxs.<br />
+2- Add CORA and MPT folder and subfolders to the Matlab path.  <br />
 3- Add the repo folder and subfolders to the Matlab path.  <br />
 <br />
 <br />

@@ -7,7 +7,7 @@ This repo cotains the code for our two papers:
 3rd Annual Learning for Dynamics and Control Conference ( [link](https://arxiv.org/abs/2011.08472) )
 
 <br/><br/>
-2- Amr Alanwar, Anne Koch, Frank Allgower, Karl Johansson "Data Driven Reachability Analysis from Noisy Data" Submitted to IEEE Transactions on Automatic Control ( [link](https://arxiv.org/abs/2105.07229) ) 
+2- Amr Alanwar, Anne Koch, Frank Allgower, Karl Johansson "Data Driven Reachability Analysis from Noisy Data" IEEE Transactions on Automatic Control ( [link](https://ieeexplore.ieee.org/document/10068731) ) 
  
 ## Problem Statement
 We consider the problem of reachability analysis from noisy data, given that the system model is unknown. 
@@ -81,10 +81,13 @@ Our papers Bibtex are as follow:<br />
 ```
 
 ```
-@article{datadriven_reach2,
-  title={Data-Driven Reachability Analysis from Noisy Data},
+@ARTICLE{10068731,
   author={Alanwar, Amr and Koch, Anne and Allgöwer, Frank and Johansson, Karl Henrik},
-  journal={arXiv preprint arXiv:2105.07229},
-  year={2021}
-}
+  journal={IEEE Transactions on Automatic Control}, 
+  title={Data-Driven Reachability Analysis from Noisy Data}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-16},
+  doi={10.1109/TAC.2023.3257167}}
 ```

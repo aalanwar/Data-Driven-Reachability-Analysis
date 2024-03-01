@@ -1,6 +1,6 @@
 ## Data Driven Reachability Analysis from Noisy Data
 <br/> 
-This repo cotains the code for our two papers:
+This repo contains the code for our two papers:
 
 <br/><br/>
 1- Amr Alanwar, Anne Koch, Frank Allgower, Karl Johansson "Data Driven Reachability Analysis using Matrix Zonotopes"
@@ -8,7 +8,12 @@ This repo cotains the code for our two papers:
 
 <br/><br/>
 2- Amr Alanwar, Anne Koch, Frank Allgower, Karl Johansson "Data Driven Reachability Analysis from Noisy Data" IEEE Transactions on Automatic Control ( [link](https://ieeexplore.ieee.org/document/10068731) ) 
+
+## L4DC Short video about the idea
  
+ [![L4DC](https://img.youtube.com/vi/LkV6WqhFsBE/0.jpg)](https://www.youtube.com/watch?v=LkV6WqhFsBE)
+
+
 ## Problem Statement
 We consider the problem of reachability analysis from noisy data, given that the system model is unknown. 
 Identifying a model is a preliminary step in the state-of-the-art reachability analysis approaches. 

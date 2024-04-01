@@ -35,9 +35,6 @@ samplingtime = 0.05;
 sys_d = c2d(sys_c,samplingtime);
 
 %Number of trajectories
-initpoints =13;
-%Number of time steps
-steps = 5;
 initpoints =1;
 %Number of time steps
 steps = 120;
